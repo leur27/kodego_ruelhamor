@@ -8,7 +8,7 @@ fun main() {
    Exercise No.: 2
    */
 
-    //Directory of 3 students only stored in the data bank namely: John, Peter & Mary
+    //Directory of 3 books only available in the library namely: Algebra, Reading & Snowwhite
 
     println("Enter a title book:")
 
