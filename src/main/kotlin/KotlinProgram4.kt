@@ -15,6 +15,14 @@ fun main(){
         println("Invalid grade")
     }
 
+    var gender : String = "F"
+    if(gender == "M"){
+        println("Male")
+    }else if(gender == "F"){
+        println("Female")
+    }else{
+        println("invalid choice")
+    }
 
     //range
 //    var idNumber : Int = 1
