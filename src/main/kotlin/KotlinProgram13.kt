@@ -6,6 +6,7 @@ fun main(){
 
     //explicit
     var numbers = arrayOf<Int>(2,3,4,5,110)
+    println(numbers[0])
 
     //array size
     println(numbers.size)
