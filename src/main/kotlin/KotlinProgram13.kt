@@ -10,4 +10,15 @@ fun main(){
 
     //array size
     println(numbers.size)
+    println("@@@@@@@@")
+    println(numbers[0])
+    println(numbers[1])
+    println(numbers[2])
+    //names[1] = "Matther"
+    names.set(1, "Matthew")
+    println("@@@@@@@@")
+    println(names.get(0))
+    println(names.get(1))
+    println(names.get(2))
+
 }
