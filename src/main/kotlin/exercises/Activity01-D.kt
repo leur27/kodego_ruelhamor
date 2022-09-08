@@ -6,9 +6,9 @@ Exercise No.: 4
 */
 fun main(){
 
-    print("---------------------------------------------------------------")
-    println("\nThis machine solves total/number from unlimited input amount")
-    println("---------------------------------------------------------------")
+    print("----------------------------------------------------------------------------")
+    println("\nThis machine solves total from unlimited input amount divided by a number ")
+    println("----------------------------------------------------------------------------")
 
                                                     //program starts here / declared variables
     var condi : Boolean = true
