@@ -1,5 +1,14 @@
 fun main(){
     var mySet = setOf(2,3,6,1,2)
+    //mutable set
+    var mySet2 = mutableSetOf<Int>()
+    mySet2.add(5)
+    mySet2.add(7)
+    mySet2.add(8)
+    mySet2.remove(8)
+    for(data in mySet2){
+        print(data)
+    }
 
 //    println(mySet.count())
 //    println(mySet.sum())
