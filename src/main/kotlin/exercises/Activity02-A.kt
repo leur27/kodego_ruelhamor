@@ -1,6 +1,7 @@
 package exercises
 
 fun main() {
+
     //Data Structure: using Mutable Map collection
     val studentsData = mutableMapOf<Int, String>(1 to "John Doe", 2 to "Peter Pan", 3 to "Mary Me")
     val studentsData6 = mutableMapOf<Int, String>(1 to "Male", 2 to "Male", 3 to "Female")
@@ -9,22 +10,22 @@ fun main() {
     val studentsData7 = mutableMapOf<Int, Double>(1 to 2.5, 2 to 2.0, 3 to 1.5)
     val studentsData4 = mutableMapOf<Int, Int>(1 to 123, 2 to 234, 3 to 345)
     val studentsData3 = mutableMapOf<Int, Int>(1 to 16, 2 to 17, 3 to 18)
-    var condition : Boolean = true
-    var age: Int = 0
-    var select: Int = 0
-    var idNumber: Int = 0
-    var contactNo: Int = 0
-    var grade: Double = 0.00
-    lateinit var gender: String
-    lateinit var section: String
-    lateinit var studentName: String
-    lateinit var homeAddress: String
+    var conditional : Boolean = true
+    lateinit var homeAddress:String
+    lateinit var studentName:String
+    lateinit var contactNo:Number
+    lateinit var idNumber:Number
+    lateinit var section:String
+    lateinit var gender:String
+    lateinit var select:Number
+    lateinit var grade:Number
+    lateinit var age:Number
 
     println("-------------------------------------------------------")
     println("****************   Student Directory   ****************")
     println("-------------------------------------------------------")
 
-    while (condition){
+    while (conditional){
         println("---Select an option---")
         println("[1] Add \n[2] Find \n[3] Edit \n[4] Delete \n[5] Display All \n[6] Exit \nEnter here:")        //call to action
         select = readln().toInt()
@@ -119,17 +120,17 @@ fun main() {
             println("...Deletion completed...")
             println("----------------------------------")
         } else if (select == 5){                                                                                //option 5 -> display of all students
-            println("<< Displaying all data >>")                                                                //traversing the values, display size
+            println("<< Displaying all entries >>")                                                             //traversing the values, display size
             for (key in studentsData.keys){
-                println("ID No.: $key Student Name: ${studentsData[key]}")
+                println("ID No.: $key   Student Name: ${studentsData[key]}")
             }
-            println("\nThis data bank contains ${(studentsData.size)} students information ")
+            println("\nThis directory contains ${(studentsData.size)} data ")
             println("...Display completed...")
             println("----------------------------------")
         } else{
             println("----------------------------------")
             println("<< Exiting the program >>")
-            condition = false
+            conditional = false
         }
     }
     println("You may access the data again next time \nThank you...")
