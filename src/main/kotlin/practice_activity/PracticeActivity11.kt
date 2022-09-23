@@ -28,7 +28,6 @@ fun main(){
 }
 
 class SalesDiscount{
-
     init {
         println("\nChecking discount...")
     }
