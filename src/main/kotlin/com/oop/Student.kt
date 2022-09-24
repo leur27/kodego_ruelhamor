@@ -1,4 +1,5 @@
 package com.oop
 
-class Student {
+class Student:Person(){
+
 }
