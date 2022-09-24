@@ -41,7 +41,7 @@ class SalesDiscount{
             println("%Discount:   5%")
             println("Less Amount: ${disc}0")
             println("Net Price:   ${netPrice}0")
-            print("Price to pay: \"Net Price\"")
+            print("Amount to pay: \"Net Price\"")
             println("\n-------------------------")
         //price @ 10% discount
         }else if((price >= 20001)&&(price <= 50000)) {
@@ -51,7 +51,7 @@ class SalesDiscount{
             println("%Discount:   10%")
             println("Less Amount: ${disc2}0")
             println("Net Price:   ${netPrice}0")
-            print("Price to pay: \"Net Price\"")
+            print("Amount to pay: \"Net Price\"")
             println("\n-------------------------")
         //price @ 15% discount
         }else if((price >= 50001)&&(price <= 100000)) {
@@ -61,7 +61,7 @@ class SalesDiscount{
             println("%Discount:   15%")
             println("Less Amount: ${disc3}0")
             println("Net Price:   ${netPrice}0")
-            print("Price to pay: \"Net Price\"")
+            print("Amount to pay: \"Net Price\"")
             println("\n-------------------------")
         //price @ 20% discount
         }else if(price > 100000){
@@ -71,7 +71,7 @@ class SalesDiscount{
             println("%Discount:   20%")
             println("Less Amount: ${disc4}0")
             println("Net Price:   ${(netPrice)}0")
-            print("Price to pay: \"Net Price\"")
+            print("Amount to pay: \"Net Price\"")
             println("\n-------------------------")
         //price @ 0% discount
         }else if((price >= 1)&&(price <= 10000)){
@@ -80,10 +80,10 @@ class SalesDiscount{
             println("%Discount:   0%")
             println("Less Amount: 0")
             println("Net price is ${netPrice}0")
-            print("Price to pay: \"Original Price\"")
+            print("Amount to pay: \"Original Price\"")
             println("\nNo Discount")
             println("-------------------------")
-        //for negative amount
+        //for negative input
         }else{
             println("-----------------------------------")
             println("You have entered an invalid input: \n\"Requires positive value\"")
