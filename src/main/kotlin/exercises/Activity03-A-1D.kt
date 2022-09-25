@@ -12,20 +12,22 @@ fun main() {
     lateinit var input: Number
     lateinit var div: Number
 
-    while (condi) {                                              //loop statement / condition is true
-        print("Would you like to continue? Y/N: ")              //call to action answerable only by Y / N
-        answer = readln()
-        if (answer == "Y" || answer == "y") {
-            print("Enter an amount:")
-            input = readln().toDouble()
-            total += input
-        } else if (answer == "N" || answer == "n") {
-            println("\nTotal amount is $total")
-            condi = false
-        }
-    }
-    //input a number here to divide the total amount //try-catch block
+//    try-catch block
 //    try {
+        while (condi) {                                              //loop statement / condition is true
+            print("Would you like to continue? Y/N: ")              //call to action answerable only by Y / N
+            answer = readln()
+            if (answer == "Y" || answer == "y") {
+                print("Enter an amount:")
+                input = readln().toDouble()
+                total += input
+            } else if (answer == "N" || answer == "n") {
+                println("\nTotal amount is $total")
+                condi = false
+            }
+        }
+        //input a number here to divide the total amount
+
         println("\nDivide the total by how many? ")
         div = readln().toInt()
         val quotient: Number = (total / div)
