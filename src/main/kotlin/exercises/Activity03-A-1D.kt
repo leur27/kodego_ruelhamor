@@ -13,7 +13,7 @@ fun main() {
     lateinit var div: Number
 
 //    try-catch block
-//    try {
+    try {
         while (condi) {                                              //loop statement / condition is true
             print("Would you like to continue? Y/N: ")              //call to action answerable only by Y / N
             answer = readln()
@@ -27,20 +27,17 @@ fun main() {
             }
         }
         //input a number here to divide the total amount
-
         println("\nDivide the total by how many? ")
         div = readln().toInt()
         val quotient: Number = (total / div)
         println("\nThe result is $quotient")
         println("\nTransaction completed")
-//    } catch (e:Exeption) {
-//        println(e)
-//        println(" ")
-//    }
-
+    } catch (e:NumberFormatException) {
+        println(e)
+        println("Enter digits only")
+    }
     println("THANK YOU!")
 }
-
 private operator fun Number.div(div: Int): Number {
 return div
 }
