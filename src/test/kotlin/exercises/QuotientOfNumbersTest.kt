@@ -62,4 +62,18 @@ class QuotientOfNumbersTest{
         val quotientOfNumbers = QuotientOfNumbers(80,10)
         assertEquals(8, quotientOfNumbers.setDivisor(div = 10))
     }
+
+    //[9] entered 5, 10, 5, 10, 6, 6, 14, 7, 17, 8 and divide by 11
+    @Test
+    fun enterFiveAndTenAndFiveAndTenAndSixAndSixAndFourteenAndSevenAndSeventeenAndEightDivideBy11(){
+        val quotientOfNumbers = QuotientOfNumbers(88,11)
+        assertEquals(8, quotientOfNumbers.setDivisor(div = 11))
+    }
+
+    //[10] entered 5, 10, 5, 10, 6, 6, 14, 7, 17, 8, 8 and divide by 12
+    @Test
+    fun enterFiveAndTenAndFiveAndTenAndSixAndSixAndFourteenAndSevenAndSeventeenAndEightAndTwentyDivideBy12(){
+        val quotientOfNumbers = QuotientOfNumbers(108,12)
+        assertEquals(9, quotientOfNumbers.setDivisor(div = 12))
+    }
 }
