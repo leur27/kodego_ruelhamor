@@ -1,5 +1,7 @@
-fun main(){
 
+fun main(){
+    val name : String = "Jack"
+    var age : Int = 12
 
 }
 
@@ -14,7 +16,7 @@ class empty{}
 //        val name = "Nested"
 //        fun show() = "The name $name"
 //    }
-}
+//}
 
 class Outer2 {
 

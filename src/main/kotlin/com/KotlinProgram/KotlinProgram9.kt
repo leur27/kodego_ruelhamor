@@ -1,7 +1,7 @@
 fun main(){
     //do while
     //init
-    var ctr : Int = 6
+    var ctr : Int = 1
     do{
         println("Hello World")
         ctr++ //update

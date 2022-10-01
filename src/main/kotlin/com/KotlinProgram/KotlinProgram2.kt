@@ -12,9 +12,9 @@ fun main(){
     println(string1.lowercase())
     println(string1.uppercase())
     //startswith/endswith
-    //println(string2.startsWith(prefix:"this"))
+    println(string2.startsWith(prefix = "this"))
     //concatinate
-    //println(string1+" "+string2)
+    println(string1+" "+string2)
     //substring
     println(string1.substring(0,4))
     //replace

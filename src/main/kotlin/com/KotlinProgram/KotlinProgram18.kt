@@ -8,7 +8,7 @@ fun main(){
 
     //traversing keys
     for (key in map.keys){
-        print(key)
+        println(key)
     }
 
     //traversing values

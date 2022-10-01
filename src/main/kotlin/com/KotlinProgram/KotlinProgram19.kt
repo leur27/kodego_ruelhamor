@@ -18,6 +18,8 @@ fun main(){
     myList2.add(8)
     myList2.add(9)
 
+    println(myList2)
+
     myList2[0] = 10
 
     for(mylist2Value in myList2){

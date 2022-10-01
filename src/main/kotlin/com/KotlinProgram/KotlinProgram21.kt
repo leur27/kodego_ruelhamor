@@ -1,11 +1,12 @@
 fun main(){
 
     //instantiation - process of creating an object
-//    var myObject = MyClass("Hello World")
-//    var myObject2 = MyClass("Hi Earth")
-//
-    var myGenericObject = MyGenericClass("words")
-    var myGenericObject2 = MyGenericClass(3.1416)
+    var myObject = MyClass("Hello World")
+    var myObject2 = MyClass("Hi Earth")
+    var myObject3 = MyClass2(123)
+
+//    var myGenericObject = MyGenericClass("words")
+//    var myGenericObject2 = MyGenericClass(3.1416)
 }
 
 class  MyGenericClass<T>(content : T){
@@ -14,6 +15,7 @@ class  MyGenericClass<T>(content : T){
     }
 }
 
+//non-generic class
 class MyClass(word : String){
     init{
         println(word)
