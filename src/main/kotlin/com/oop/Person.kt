@@ -2,38 +2,30 @@ package com.oop
 
 //Abstraction
 //Encapsulation
-open class Person{
-    var name: Any = "John"
-        get() {return field}
-        set(value){
-            field = value
-        }
-    var age: Int = 23
-        get() {return field}
-        set(value) {
-            if (value < 1){
-                println("Invalid Age")
-            }else{
-                field = value
-            }
-        }
+open class Person(name:String, age:Int){
+    var name: String = name
+    var age: Int = age
 
     init{
         println("Object Created!")
         println("name is $name, age is $age")
     }
 
-    fun upAge():Int{
-        age++
-        return age
+    open fun displayName(){
+        println("Name is $name")
+    }
+    fun displayName(name:String){
+        println("Name is $name")
+    }
+    fun displayName(numberOfTimes:Int){
+        var ctr = numberOfTimes - 1
+        while(ctr >=0){
+            println("Name is $name")
+            ctr--
+        }
     }
 
-//    fun setAge(name:Int):Int{
-//
+//    open fun displayAge(){
+//        println("Age is $age")
 //    }
-
-    fun change(age:Int){
-        println(this.age)
-    }
-
 }
