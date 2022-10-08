@@ -9,7 +9,7 @@ fun  main(){
     println("Type a word/words: ")
     var line1 : String = readln()
 
-    println("\nType a word/words: ")
+    println("Type a word/words: ")
     var line2 : String = readln()
 
     var combi : String = ""
@@ -27,6 +27,7 @@ fun  main(){
         line1 = line1.replace(remove, "")
         line2 = line2.replace(remove, "")
     }
-    println("\nUnique characters are: $line1$line2")
+    println("\nUnique characters are: $line1")
+    println("Unique characters are: ${line2}")
 
 }

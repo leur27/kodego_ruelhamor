@@ -1,39 +1,56 @@
 package exercises
 
-import exercises.com.oopActivity04B.InventorySystem
+import exercises.com.oopActivity04B.*
 
-fun main(){
+fun main(){1
 
-    val inventorySystem = InventorySystem()
-    var condition: Boolean = true
+    var inventoryOfStocks = InventoryOfStocks()
+    val inventoryDisplay = InventorySystemsDisplay()
+    val searchInventory = InventorySystemsSearch()
+//    val  addInventory = InventorySystemsAdd()
+//    val  editInventory = InventorySystemsEdit()
+    val deleteInventory = InventorySystemsDelete()
+    var condition = true
     var select: Int
     var option: Int
     var choose: Int
     var input: Int
-    var itemNumber: Int = 0
-    var productName: String = " "
-    var category: String = " "
-    var inventory: Double = 0.0
-    var itemUnit: String = " "
-    var itemPrice: Double = 0.0
+    var itemNumber = 0
+    var productName = " "
+    var category = " "
+    var inventory = 0.0
+    var itemUnit = " "
+    var itemPrice = 0.0
 
+    println("-------------------------------------------------------")
+    println("**************  Sales & Inventory System  *************")
+    println("-------------------------------------------------------")
 
     while (condition) {
         println("Select an option \n[1] Display \n[2] Search  \n[3] Add  \n[4] Edit  \n[5] Delete  \n[0] Exit  \nEnter here:")
+        println("----------------------------------")
         select = readln().toInt()
         if (select == 1) {
             println("<< Display selected >>")
-            println("\nDisplay option \n[1] Food \n[2] Toiletries \n[3] Non Food \n[4] All \n[0] Exit \nEnter here:")
-            input = readln().toInt()
-            when (input){
-                1 -> inventorySystem.displayInventoryFood()
-                2 -> inventorySystem.displayInventoryToiletries()
-                3 -> inventorySystem.displayInventoryNonFood()
-                4 -> inventorySystem.displayInventoryAll()
-                else -> continue
+            try {
+                println("\nDisplay option \n[1] Food \n[2] Toiletries \n[3] Non Food \n[4] All \n[0] Exit \nEnter here:")
+                input = readln().toInt()
+                when (input) {
+                    1 -> inventoryDisplay.displayInventoryFood()
+                    2 -> inventoryDisplay.displayInventoryToiletries()
+                    3 -> inventoryDisplay.displayInventoryNonFood()
+                    4 -> inventoryDisplay.displayInventoryAll()
+                    else -> continue
+                }
+                println("...display completed")
+                println("----------------------------------")
+            } catch (e: NumberFormatException) {
+                println("\n $e")
+                println("Ooops...wrong input! Try again and enter a digit only")
+                println("----------------------------------")
+            } finally {
+                continue
             }
-            println("...display completed")
-            println("----------------------------------")
         } else if (select == 2) {
             println("<< Search selected >>")
             println("Searching...")
@@ -42,16 +59,25 @@ fun main(){
             if (option == 1) {
                 println("<< Search selected >>")
                 println("Searching by item number...")
-                println("Enter item number:")
-                itemNumber = readln().toInt()
-                inventorySystem.searchByItemNumber(itemNumber)
+                try {
+                    println("Enter the item number:")
+                    itemNumber = readln().toInt()
+                    searchInventory.searchByItemNumber(itemNumber)
+                    println("----------------------------------")
+                }catch (e: NumberFormatException){
+                    println("\n $e")
+                    println("Ooops...wrong input! Try again and enter a digit only")
+                    println("----------------------------------")
+                }finally {
+                    continue
+                }
             } else if (option == 2) {
                 println("<< Search selected >>")
                 println("Searching by product name...")
                 println("Enter product name:")
                 productName = readln()
                 println("Searching details for product ${(productName).uppercase()}")
-                inventorySystem.searchByProductName(productName)
+                searchInventory.searchByProductName(productName)
             } else {
                 println("Item is not listed")
             }
@@ -60,62 +86,74 @@ fun main(){
         } else if (select == 3) {
             println("<< Add selected >>")
             println("Adding...")
-            println("\nChoose type \n[1] Food \n[2] Toiletries \n[3] Non Food \n[0] Exit \nEnter here:")
-            choose = readln().toInt()
-            if (choose == 1) {
-                println("New item no.: ")
-                itemNumber = readln().toInt()
-                println("New product name: ")
-                productName = readln()
-                println("New product category: ")
-                category = readln()
-                println("New inventory count: ")
-                inventory = readln().toDouble()
-                println("New item unit: ")
-                itemUnit = readln()
-                println("New unit price: ")
-                itemPrice = readln().toDouble()
-                inventorySystem.addInventoryFood(itemNumber, productName, category, inventory, itemUnit, itemPrice)
-            } else if (choose == 2) {
-                println("New item no.: ")
-                itemNumber = readln().toInt()
-                println("New product name: ")
-                productName = readln()
-                println("New product category: ")
-                category = readln()
-                println("New inventory count: ")
-                inventory = readln().toDouble()
-                println("New item unit: ")
-                itemUnit = readln()
-                println("New unit price: ")
-                itemPrice = readln().toDouble()
-                inventorySystem.addInventoryToiletries(
-                    itemNumber,
-                    productName,
-                    category,
-                    inventory,
-                    itemUnit,
-                    itemPrice
-                )
-            } else if (choose == 3) {
-                println("New item no.: ")
-                itemNumber = readln().toInt()
-                println("New product name: ")
-                productName = readln()
-                println("New product category: ")
-                category = readln()
-                println("New inventory count: ")
-                inventory = readln().toDouble()
-                println("New item unit: ")
-                itemUnit = readln()
-                println("New unit price: ")
-                itemPrice = readln().toDouble()
-                inventorySystem.addInventoryNonFood(itemNumber, productName, category, inventory, itemUnit, itemPrice)
-            } else {
-                continue
-            }
-            println("\n...adding completed")
-            println("----------------------------------")
+//            try {
+                println("\nChoose type \n[1] Food \n[2] Toiletries \n[3] Non Food \n[0] Exit \nEnter here:")
+                choose = readln().toInt()
+                if (choose == 1) {
+                    println("New item no.: ")
+                    itemNumber = readln().toInt()
+                    println("New product name: ")
+                    productName = readln()
+                    println("New product category: ")
+                    category = readln()
+                    println("New inventory count: ")
+                    inventory = readln().toDouble()
+                    println("New item unit: ")
+                    itemUnit = readln()
+                    println("New unit price: ")
+                    itemPrice = readln().toDouble()
+                    inventoryOfStocks.addInventoryItems(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+                    println("\n...adding completed")
+                    println("----------------------------------")
+                } else if (choose == 2) {
+                    println("New item no.: ")
+                    itemNumber = readln().toInt()
+                    println("New product name: ")
+                    productName = readln()
+                    println("New product category: ")
+                    category = readln()
+                    println("New inventory count: ")
+                    inventory = readln().toDouble()
+                    println("New item unit: ")
+                    itemUnit = readln()
+                    println("New unit price: ")
+                    itemPrice = readln().toDouble()
+                    inventoryOfStocks.addInventoryToiletries(
+                        itemNumber,
+                        productName,
+                        category,
+                        inventory,
+                        itemUnit,
+                        itemPrice
+                    )
+                    println("\n...adding completed")
+                    println("----------------------------------")
+                } else if (choose == 3) {
+                    println("New item no.: ")
+                    itemNumber = readln().toInt()
+                    println("New product name: ")
+                    productName = readln()
+                    println("New product category: ")
+                    category = readln()
+                    println("New inventory count: ")
+                    inventory = readln().toDouble()
+                    println("New item unit: ")
+                    itemUnit = readln()
+                    println("New unit price: ")
+                    itemPrice = readln().toDouble()
+                    inventoryOfStocks.addInventoryNonFood(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+                    println("\n...adding completed")
+                    println("----------------------------------")
+                } else {
+                    continue
+                }
+//            }catch (e: NumberFormatException){
+//                println("\n $e")
+//                println("Ooops...wrong input! Try again and enter a digit only")
+//                println("----------------------------------")
+//            }finally {
+//                continue
+//            }
         } else if (select == 4) {
             println("<< Edit selected >>")
             println("Editing...")
@@ -131,7 +169,7 @@ fun main(){
             itemUnit = readln()
             println("New unit price: ")
             itemPrice = readln().toDouble()
-            inventorySystem.editInventory(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+            inventoryOfStocks.editInventory(itemNumber, productName, category, inventory, itemUnit, itemPrice)
             println("\n...editing completed")
             println("----------------------------------")
         } else if (select == 5) {
@@ -139,13 +177,14 @@ fun main(){
             println("Deleting...")
             println("Enter the item no.: ")
             itemNumber = readln().toInt()
-            inventorySystem.deleteInventory(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+            deleteInventory.deleteInventoryItems(itemNumber)
             println("\n...deleting completed")
             println("----------------------------------")
         } else {
-            println(">>>  Exiting the system <<<")
+            println(">>>  Exiting the system  <<<")
             condition = false
         }
+
     }
 }
 

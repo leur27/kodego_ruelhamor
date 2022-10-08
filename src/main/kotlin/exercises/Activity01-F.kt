@@ -19,5 +19,4 @@ fun main(){
         println("Reversed word of $str1 is $str2")
     }
 
-
 }

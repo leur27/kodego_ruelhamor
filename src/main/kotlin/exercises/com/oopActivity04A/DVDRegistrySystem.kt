@@ -1,4 +1,6 @@
 package exercises.com.oopActivity04A
 
-class DVDRegistrySystem {
+abstract class DVDRegistrySystem() {
+
+
 }

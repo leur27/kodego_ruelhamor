@@ -8,7 +8,7 @@ fun main() {
    Exercise No.: 2
    */
 
-    //Directory of 3 books only available in the library namely: Algebra, Reading & Snowwhite
+    //Record of 3 books only available in the library namely: Algebra, Reading & Snowwhite
 
     println("Enter a title book:")
 

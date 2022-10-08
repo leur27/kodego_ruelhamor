@@ -1,6 +1,6 @@
 package exercises.com.oopActivity04B
 
-class InventorySystemsEdit: InventorySystem() {
+class InventorySystemsEdit: InventoryOfStocks() {
 
     override fun editInventory(itemNumber: Int, productName: String, category: String, inventory: Double, itemUnit: String, itemPrice: Double):Boolean{
         foodItem.replace(itemNumber, productName)

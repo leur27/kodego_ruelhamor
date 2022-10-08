@@ -55,13 +55,11 @@ fun main() {
             println("General Average: ")
             grade = readln().toDouble()
             studentsData7.put(key = idNumber, value = grade)
-            println("...Adding completed...")
+            println("\n...Adding completed...")
             println("----------------------------------")
         }else if (select == 2) {                                                                                //option 2 -> search for student's data
-            println("----------------------------------")                                                       //using display of values
+            println("----------------------------------")                                                       //display of values
             println("<< Searching for a data >>")
-            println("Enter student name: ")
-            studentName = readln()
             println("Enter student ID: ")
             idNumber = readln().toInt()
             println("Searching for      $studentName with ID number $idNumber")
@@ -71,7 +69,7 @@ fun main() {
             println("Home Address:      ${(studentsData5[idNumber])}")
             println("Gender:            ${(studentsData6[idNumber])}")
             println("General Average:   ${(studentsData7[idNumber])}")
-            println("...Search completed...")
+            println("\n...Search completed...")
             println("----------------------------------")
         }else if (select == 3) {                                                                                //option 3 -> editing a student's info
             println("----------------------------------")                                                       //replace function to change values
@@ -105,8 +103,6 @@ fun main() {
         } else if (select == 4){                                                                                //option 4 -> adding new student
             println("----------------------------------")                                                       //remove function to delete values
             println("<< Deleting data >>")
-            println("Enter student name: ")
-            studentName = readln()
             println("Enter student ID: ")
             idNumber = readln().toInt()
             println("Deleting data of $studentName with ID number $idNumber...")

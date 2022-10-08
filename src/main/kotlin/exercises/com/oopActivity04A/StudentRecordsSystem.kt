@@ -1,4 +1,6 @@
 package exercises.com.oopActivity04A
 
-class StudentRecordsSystem {
+open class StudentRecordsSystem(): UniversityELibrary() {
+
+
 }

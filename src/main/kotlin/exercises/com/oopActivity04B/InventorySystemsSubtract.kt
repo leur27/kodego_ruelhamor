@@ -1,4 +1,5 @@
 package exercises.com.oopActivity04B
 
-class InventorySystemsSubtract {
+class InventorySystemsSubtract: SalesOfStocks {
+
 }

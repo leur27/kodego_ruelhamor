@@ -13,31 +13,29 @@ fun main() {
     var location = " "
     var available = 0
     var edition = 0
-    lateinit var book: String
     lateinit var select: Number
     var exceed: Int
     lateinit var option: Number
     var returnDate = " "
     var borrowDate = " "
     var borrowerName = " "
+    var book: String
 
 
     while (conditional) {
-        println("---Select an option---")
-        println("MAIN MENU \n[1] List \n[2] Borrow \n[3] Return \n[0] Exit \nEnter here:")        //call to action
+        println("MAIN MENU \n[1] List \n[2] Borrow \n[3] Return \n[0] Exit \nEnter here:")                      //call to action, main menu
         println("----------------------------------")
         select = readln().toInt()
-        println("----------------------------------")
-        if (select == 1) {                                                                                      //option 1 -> adding new student
+        if (select == 1) {                                                                                      //selection 1 -> displaying book list
             println("<< List of books >>")
             println("system display...\n")
             schoolLibrary.listBook()
             println("...display completed")
             println("----------------------------------")
-            println("Branch Menu: \n[1] Search \n[2] Edit \n[3] Add \n[4] Delete \n[0] Exit \nEnter here:")
+            println("Branch Menu: \n[1] Search \n[2] Edit \n[3] Add \n[4] Delete \n[0] Exit \nEnter here:")     //call to action, sub menu
             println("----------------------------------")
             option = readln().toInt()
-            if (option==1){
+            if (option==1){                                                                                     //option 1 -> searching book details
                 println("<< List of books -> Search >>")
                 println("system searching...")
                 println("Enter book title:")
@@ -45,7 +43,7 @@ fun main() {
                 schoolLibrary.searchBook(title)
                 println("\n...searching completed")
                 println("----------------------------------")
-            }else if (option==2){
+            }else if (option==2){                                                                               //option 2 -> editing book details
                 println("<< List of books -> Edit >>")
                 println("system editing...")
                 println("Title: ")
@@ -65,7 +63,7 @@ fun main() {
                 schoolLibrary.editBook(title, author, category, edition, copies, location, available)
                 println("\n...editing completed")
                 println("----------------------------------")
-            }else if (option==3){
+            }else if (option==3){                                                                                   //option 3 -> adding a book entry
                 println("<< List of books -> Add >>")
                 println("system adding...")
                 println("Title: ")
@@ -85,7 +83,7 @@ fun main() {
                 schoolLibrary.addBook(title, author, category, edition, copies, location, available)
                 println("\n...adding completed")
                 println("----------------------------------")
-            }else if (option==4){
+            }else if (option==4){                                                                                   //option 4 -> deleting a book entry
                 println("<< List of books -> Delete >>")
                 println("system deleting...")
                 println("Title of a book: ")
@@ -96,7 +94,7 @@ fun main() {
             }else{
                 continue
             }
-        }else if (select==2){
+        }else if (select==2){                                                                                     //selection 2 -> borrowing a book
             println("<< Borrow a book >>")
             println("borrowing...")
             println("Borrowers name:")
@@ -107,10 +105,10 @@ fun main() {
             borrowDate = readln()
             println("Date of return:")
             returnDate = readln()
-            schoolLibrary.borrowBook(title, book, returnDate, borrowerName)
+            schoolLibrary.borrowBook(book, returnDate, borrowDate, borrowerName)
             println("...borrowing completed")
             println("----------------------------------")
-        }else if (select==3){
+        }else if (select==3){                                                                                   //selection 3 -> returning a book
             println("<< Return a book >>")
             println("returning...")
             println("Borrowers name:")
@@ -121,10 +119,11 @@ fun main() {
             println("Date to return: $returnDate")
             println("Days exceeded:")
             exceed = readln().toInt()
-            schoolLibrary.returnBook(book, returnDate, borrowDate, exceed, borrowerName)
+            schoolLibrary.returnBook(book, returnDate, borrowDate, borrowerName)
+            println("No. of days exceeded: $exceed  \nPenalty amount: Php${exceed*50}.00")
             println("...returning completed")
             println("----------------------------------")
-        }else{
+        }else{                                                                                                  //end of program
             println("----------------------------------")
             println("<< Exiting the program >>")
             conditional = false
@@ -133,6 +132,7 @@ fun main() {
 }
 
 class SchoolLibraryForJUnit {
+
     //Map of Title to: 1.Author, 2.Category, 3.Edition. 4.Copies, 5.Location, 6.Availability
     val bookTitle = mutableMapOf<String, String>(
         "Structural Analysis" to "Diego Inocensio",
@@ -216,15 +216,13 @@ class SchoolLibraryForJUnit {
     //function used for borrowing a book
     fun borrowBook(book:String, returnDate: String, borrowDate: String, borrowerName: String): Boolean{
         if (bookTitle.contains(book)){
-            if (book=="Structural Analysis"){
-                decrement(bookTitle6, "Structural Analysis")
-            }else if (book=="Philippine Literature"){
-                decrement(bookTitle6, "Philippine Literature")
-            }else if(book=="Fairy Tale"){
-                decrement(bookTitle6, "Fairy Tale")
-            }else{
-                decrement(bookTitle6, book)
+            when (book){
+                "Structural Analysis" -> decrement(bookTitle6, "Structural Analysis")
+                "Philippine Literature" -> decrement(bookTitle6, "Philippine Literature")
+                "Fairy Tale" -> decrement(bookTitle6, "Fairy Tale")
+                else -> decrement(bookTitle6, book)
             }
+
             for (key in bookTitle6.keys){
                 println("Available: ${bookTitle6[key]}  Title: $key ")
             }
@@ -236,24 +234,23 @@ class SchoolLibraryForJUnit {
         return true
     }
     //function used for returning a book
-    fun returnBook(book:String,  returnDate: String, borrowDate: String, exceed:Int, borrowerName: String){
-        if (book=="Structural Analysis"){
-            increment(bookTitle6, "Structural Analysis")
-        }else if (book=="Philippine Literature"){
-            increment(bookTitle6, "Philippine Literature")
-        }else if(book=="Fairy Tale"){
-            increment(bookTitle6, "Fairy Tale")
-        }else{
-            increment(bookTitle6, book)
+    fun returnBook(book:String,  returnDate: String, borrowDate: String, borrowerName: String):Boolean{
+        when (book){
+            "Structural Analysis" -> increment(bookTitle6, "Structural Analysis")
+            "Philippine Literature" -> increment(bookTitle6, "Philippine Literature")
+            "Fairy Tale" -> increment(bookTitle6, "Fairy Tale")
+            else -> increment(bookTitle6, book)
         }
         for (key in bookTitle6.keys){
             println("Available: ${bookTitle6[key]}  Title: $key ")
         }
-        println("\nBorrower: $borrowerName \nBook returned: $book \nDate borrowed: $borrowDate")
-        println("Due date: $returnDate\n \nNo. of days exceeded: $exceed  \nPenalty amount: Php${exceed*50}.00")
+        println("\nBorrower: $borrowerName \nBook returned: $book \nDate borrowed: $borrowDate \nDue date: $returnDate\n")
+        return true
     }
+
+
     //private function used in borrowBook function, adds 1 copy per book borrowed
-    fun <K : Any> decrement(bookTitle6: MutableMap<String, Int>, key: K) {
+    private fun <K : Any> decrement(bookTitle6: MutableMap<String, Int>, key: K) {
         when (val count = bookTitle6[key.toString()])
         {
             null -> bookTitle6[key.toString()] = 1
@@ -261,7 +258,7 @@ class SchoolLibraryForJUnit {
         }
     }
     //private function used in returnBook function, adds 1 copy per book returned
-    fun <K : Any> increment(bookTitle6: MutableMap<String, Int>, key: K) {
+    private fun <K : Any> increment(bookTitle6: MutableMap<String, Int>, key: K) {
         when (val count = bookTitle6[key.toString()])
         {
             null -> bookTitle6[key.toString()] = 1

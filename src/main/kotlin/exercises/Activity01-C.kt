@@ -1,20 +1,21 @@
 package exercises
+/*
+Author: Ruel Hamor
+Date Created: 9/3/22
+Filename: Activity01-C.kt
+Exercise No.: 3
+*/
+
+//Inventory of 5 items only available in the grocery namely: Hotdog, Tissue, Surf, Ensaymada & Soy Sauce
 
 fun main() {
-    /*
-   Author: Ruel Hamor
-   Date Created: 9/3/22
-   Filename: Activity01-C.kt
-   Exercise No.: 3
-   */
-
-    //Inventory of 5 items only available in the grocery namely: Hotdog, Tissue, Surf, Ensaymada & Soy Sauce
 
     println("Enter an item:")
 
     var itemName: String = readLine()!!
     println("You are looking for $itemName")
 
+    //item1 details
     var item1 : String = "Hotdog"
     var category1 : String = "Frozen Food"
     var location1 : Char = 'A'
@@ -22,6 +23,7 @@ fun main() {
     var quantity1 : Int = 30
     var unit1 : String = "kilos"
 
+    //item2 details
     var item2 : String = "Tissue"
     var category2 : String = "Hygiene"
     var location2 : Char = 'B'
@@ -29,6 +31,7 @@ fun main() {
     var quantity2 : Int = 120
     var unit2 : String = "rolls"
 
+    //item2 details
     var item3 : String = "Surf"
     var category3 : String = "Laundry"
     var location3 : Char = 'C'
@@ -36,6 +39,7 @@ fun main() {
     var quantity3 : Int = 95
     var unit3 : String = "dozens"
 
+    //item3 details
     var item4 : String = "Ensaymada"
     var category4 : String = "Bread"
     var location4 : Char = 'D'
@@ -43,6 +47,7 @@ fun main() {
     var quantity4 : Int = 50
     var unit4 : String = "pieces"
 
+    //item4 details
     var item5 : String = "Soy Sauce"
     var category5 : String = "Condiment"
     var location5 : Char = 'E'
@@ -50,6 +55,7 @@ fun main() {
     var quantity5 : Int = 25
     var unit5 : String = "bottles"
 
+    //item5 details
     if (itemName == item1) {
         println("Item: $item1")
         println("Category: $category1")

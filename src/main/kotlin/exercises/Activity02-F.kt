@@ -1,28 +1,38 @@
 package exercises
 
 
-fun main(){
-
-    var condition : Boolean = true
-    var select : Int
-    var option : Int
+fun main() {
+    val inventoryProgram = InventoryProgram()
+    var condition: Boolean = true
+    var select: Int
+    var option: Int
+    var choose: Int
+    var input: Int
     var itemNumber: Int = 0
     var productName: String = " "
     var category: String = " "
     var inventory: Double = 0.0
     var itemUnit: String = " "
     var itemPrice: Double = 0.0
-    var inventoryProgram = InventoryProgram()
 
-    while (condition){
-        println("\nSelect an option \n[1] Display \n[2] Search  \n[3] Add  \n[4] Edit  \n[5] Delete  \n[0] Exit  \nEnter here:")
+
+    while (condition) {
+        println("Select an option \n[1] Display \n[2] Search  \n[3] Add  \n[4] Edit  \n[5] Delete  \n[0] Exit  \nEnter here:")
         select = readln().toInt()
         if (select == 1) {
-            println("<< Displaying all entries >>")
-            inventoryProgram.displayInventory()
-            println("...Display completed...")
+            println("<< Display selected >>")
+            println("\nDisplay option \n[1] Food \n[2] Toiletries \n[3] Non Food \n[4] All \n[0] Exit \nEnter here:")
+            input = readln().toInt()
+            when (input){
+                1 -> inventoryProgram.displayInventoryFood()
+                2 -> inventoryProgram.displayInventoryToiletries()
+                3 -> inventoryProgram.displayInventoryNonFood()
+                4 -> inventoryProgram.displayInventoryAll()
+                else -> continue
+            }
+            println("...display completed")
             println("----------------------------------")
-        }else if (select == 2) {
+        } else if (select == 2) {
             println("<< Search selected >>")
             println("Searching...")
             println("\nSearch by \n[1] Item No. \n[2] Product Name \n[0] Exit \nEnter here:")
@@ -33,41 +43,78 @@ fun main(){
                 println("Enter item number:")
                 itemNumber = readln().toInt()
                 inventoryProgram.searchByItemNumber(itemNumber)
-                println("\n...searching completed")
-                println("----------------------------------")
-            }else if (option == 2) {
+            } else if (option == 2) {
                 println("<< Search selected >>")
                 println("Searching by product name...")
                 println("Enter product name:")
                 productName = readln()
                 println("Searching details for product ${(productName).uppercase()}")
                 inventoryProgram.searchByProductName(productName)
-                println("\n...searching completed")
-                println("----------------------------------")
-            }else{
+            } else {
                 println("Item is not listed")
-                println("\n...searching completed")
-                println("----------------------------------")
             }
-        }else if (select == 3) {
+            println("\n...searching completed")
+            println("----------------------------------")
+        } else if (select == 3) {
             println("<< Add selected >>")
             println("Adding...")
-            println("New item no.: ")
-            itemNumber = readln().toInt()
-            println("New product name: ")
-            productName = readln()
-            println("New product category: ")
-            category = readln()
-            println("New inventory count: ")
-            inventory = readln().toDouble()
-            println("New item unit: ")
-            itemUnit = readln()
-            println("New unit price: ")
-            itemPrice = readln().toDouble()
-            inventoryProgram.addInventory(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+            println("\nChoose type \n[1] Food \n[2] Toiletries \n[3] Non Food \n[0] Exit \nEnter here:")
+            choose = readln().toInt()
+            if (choose == 1) {
+                println("New item no.: ")
+                itemNumber = readln().toInt()
+                println("New product name: ")
+                productName = readln()
+                println("New product category: ")
+                category = readln()
+                println("New inventory count: ")
+                inventory = readln().toDouble()
+                println("New item unit: ")
+                itemUnit = readln()
+                println("New unit price: ")
+                itemPrice = readln().toDouble()
+                inventoryProgram.addInventoryFood(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+            } else if (choose == 2) {
+                println("New item no.: ")
+                itemNumber = readln().toInt()
+                println("New product name: ")
+                productName = readln()
+                println("New product category: ")
+                category = readln()
+                println("New inventory count: ")
+                inventory = readln().toDouble()
+                println("New item unit: ")
+                itemUnit = readln()
+                println("New unit price: ")
+                itemPrice = readln().toDouble()
+                inventoryProgram.addInventoryToiletries(
+                    itemNumber,
+                    productName,
+                    category,
+                    inventory,
+                    itemUnit,
+                    itemPrice
+                )
+            } else if (choose == 3) {
+                println("New item no.: ")
+                itemNumber = readln().toInt()
+                println("New product name: ")
+                productName = readln()
+                println("New product category: ")
+                category = readln()
+                println("New inventory count: ")
+                inventory = readln().toDouble()
+                println("New item unit: ")
+                itemUnit = readln()
+                println("New unit price: ")
+                itemPrice = readln().toDouble()
+                inventoryProgram.addInventoryNonFood(itemNumber, productName, category, inventory, itemUnit, itemPrice)
+            } else {
+                continue
+            }
             println("\n...adding completed")
             println("----------------------------------")
-        }else if (select == 4) {
+        } else if (select == 4) {
             println("<< Edit selected >>")
             println("Editing...")
             println("Enter the item no.: ")
@@ -85,17 +132,19 @@ fun main(){
             inventoryProgram.editInventory(itemNumber, productName, category, inventory, itemUnit, itemPrice)
             println("\n...editing completed")
             println("----------------------------------")
-        }else if (select == 5) {
+        } else if (select == 5) {
             println("<< Delete selected >>")
             println("Deleting...")
             println("Enter the item no.: ")
             itemNumber = readln().toInt()
-            
+            inventoryProgram.deleteInventory(itemNumber)
             println("\n...deleting completed")
             println("----------------------------------")
+        } else {
+            println(">>>  Exiting the system <<<")
+            condition = false
         }
     }
-
 }
 
 

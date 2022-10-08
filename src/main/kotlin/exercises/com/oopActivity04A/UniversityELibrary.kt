@@ -1,4 +1,7 @@
 package exercises.com.oopActivity04A
 
-class UniversityELibrary {
+abstract class UniversityELibrary() {
+
+
+
 }

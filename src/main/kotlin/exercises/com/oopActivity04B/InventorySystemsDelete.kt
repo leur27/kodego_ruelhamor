@@ -1,23 +1,28 @@
 package exercises.com.oopActivity04B
 
-class InventorySystemsDelete: InventorySystem() {
+class InventorySystemsDelete: InventoryOfStocks() {
 
-    override fun deleteInventory(itemNumber: Int, productName: String, category: String, inventory: Double, itemUnit: String, itemPrice: Double):Boolean{
-        foodItem.remove(itemNumber, productName)
-        foodItem2.remove(itemNumber, category)
-        foodItem3.remove(itemNumber, inventory)
-        foodItem4.remove(itemNumber, itemUnit)
-        foodItem5.remove(itemNumber, itemPrice)
-        toiletriesItem.remove(itemNumber, productName)
-        toiletriesItem2.remove(itemNumber, category)
-        toiletriesItem3.remove(itemNumber, inventory)
-        toiletriesItem4.remove(itemNumber, itemUnit)
-        toiletriesItem5.remove(itemNumber, itemPrice)
-        nonFoodItem.remove(itemNumber, productName)
-        nonFoodItem2.remove(itemNumber, category)
-        nonFoodItem3.remove(itemNumber, inventory)
-        nonFoodItem4.remove(itemNumber, itemUnit)
-        nonFoodItem5.remove(itemNumber, itemPrice)
+    override fun deleteInventoryItems(itemNumber: Int):Boolean{
+        super.deleteInventoryItems(itemNumber)
+        foodItem.remove(itemNumber)
+        foodItem2.remove(itemNumber)
+        foodItem3.remove(itemNumber)
+        foodItem4.remove(itemNumber)
+        foodItem5.remove(itemNumber)
+        toiletriesItem.remove(itemNumber)
+        toiletriesItem2.remove(itemNumber)
+        toiletriesItem3.remove(itemNumber)
+        toiletriesItem4.remove(itemNumber)
+        toiletriesItem5.remove(itemNumber)
+        nonFoodItem.remove(itemNumber)
+        nonFoodItem2.remove(itemNumber)
+        nonFoodItem3.remove(itemNumber)
+        nonFoodItem4.remove(itemNumber)
+        nonFoodItem5.remove(itemNumber)
         return  true
     }
 }
+
+//private operator fun <K, V> MutableMap<K, V>.invoke(): Any {
+//
+//}

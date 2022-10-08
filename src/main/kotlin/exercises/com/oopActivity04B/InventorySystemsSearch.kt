@@ -1,9 +1,9 @@
 package exercises.com.oopActivity04B
 
-class InventorySystemsSearch: InventorySystem() {
+class InventorySystemsSearch: InventoryOfStocks() {
 
     override fun searchByItemNumber(itemNumber:Int):Boolean{
-        super.searchByItemNumber(itemNumber)
+//        super.searchByItemNumber(itemNumber)
         var combinedMap = foodItem + toiletriesItem + nonFoodItem
         var combinedMap2 = foodItem2 + toiletriesItem2 + nonFoodItem2
         var combinedMap3 = foodItem3 + toiletriesItem3 + nonFoodItem3

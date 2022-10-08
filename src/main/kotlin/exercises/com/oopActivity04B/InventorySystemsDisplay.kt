@@ -1,9 +1,9 @@
 package exercises.com.oopActivity04B
 
-class InventorySystemsDisplay: InventorySystem() {
+class InventorySystemsDisplay: InventoryOfStocks(){
 
     override fun displayInventoryAll():Boolean{
-        super.displayInventoryAll()
+//        super.displayInventoryAll()
         var combinedMap = foodItem + toiletriesItem + nonFoodItem
         for (key in foodItem.keys) {
             combinedMap += foodItem
@@ -18,7 +18,7 @@ class InventorySystemsDisplay: InventorySystem() {
         for (key in sortedMap.keys) {
             println("Item No.: $key   Product Name: ${(sortedMap[key]).toString().uppercase()}")
         }
-        println("\nThis directory contains ${(sortedMap.size)} items ")
+        println("\nThis inventory list contains ${(sortedMap.size)} items ")
         return true
     }
 
@@ -26,7 +26,7 @@ class InventorySystemsDisplay: InventorySystem() {
         for (key in foodItem.keys) {
             println("Item No.: $key   Product Name: ${(foodItem[key]).toString().uppercase()}")
         }
-        println("\nThis directory contains ${(foodItem.size)} items ")
+        println("\nThis inventory list contains ${(foodItem.size)} items ")
         return true
     }
 
@@ -34,7 +34,7 @@ class InventorySystemsDisplay: InventorySystem() {
         for (key in toiletriesItem.keys) {
             println("Item No.: $key   Product Name: ${(toiletriesItem[key]).toString().uppercase()}")
         }
-        println("\nThis directory contains ${(toiletriesItem.size)} items ")
+        println("\nThis inventory list contains ${(toiletriesItem.size)} items ")
         return true
     }
 
@@ -42,7 +42,7 @@ class InventorySystemsDisplay: InventorySystem() {
         for (key in nonFoodItem.keys) {
             println("Item No.: $key   Product Name: ${(nonFoodItem[key]).toString().uppercase()}")
         }
-        println("\nThis directory contains ${(nonFoodItem.size)} items ")
+        println("\nThis inventory list contains ${(nonFoodItem.size)} items ")
         return true
     }
 

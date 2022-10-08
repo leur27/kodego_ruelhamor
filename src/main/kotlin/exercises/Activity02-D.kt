@@ -2,18 +2,17 @@ package exercises
 
 fun main(){
     //implementing Activity02-A using class
-
+    val studentDirectory = StudentDirectory()
     var conditional : Boolean = true
     var homeAddress:String = " "
     var studentName:String = " "
     var contactNo:Int = 0
-    var idNumber: Int = 0
+    var idNumber: Int
     var section:String = " "
     var gender:String = " "
     lateinit var select:Number
     var grade:Double = 0.0
     var age:Int = 0
-    val studentDirectory = StudentDirectory()
 
     while (conditional){
         println("---Select an option---")
@@ -38,8 +37,8 @@ fun main(){
             gender = readln()
             println("General Average: ")
             grade = readln().toDouble()
-            studentDirectory.addData(idNumber, studentName, section, age as Int, contactNo as Int, homeAddress, gender,
-                grade as Double)
+            studentDirectory.addData(idNumber, studentName, section, age, contactNo, homeAddress, gender,
+                grade)
             println("\n...Adding completed...")
             println("----------------------------------")
         }else if (select == 2) {                                                                                //option 2 -> search for student's data
@@ -70,8 +69,8 @@ fun main(){
             gender = readln()
             println("New general average: ")
             grade = readln().toDouble()
-            studentDirectory.editData(idNumber, studentName, section, age as Int, contactNo as Int, homeAddress, gender,
-                grade as Double)
+            studentDirectory.editData(idNumber, studentName, section, age, contactNo, homeAddress, gender,
+                grade)
             println("...Edit completed...")
             println("----------------------------------")
         } else if (select == 4){                                                                                //option 4 -> adding new student
@@ -80,9 +79,8 @@ fun main(){
             println("Enter student ID: ")
             idNumber = readln().toInt()
             println("Deleting data of $studentName with ID number $idNumber...")
-            studentDirectory.deleteData(idNumber, studentName, section, age as Int, contactNo as Int, homeAddress, gender,
-                grade as Double
-            )
+            studentDirectory.deleteData(idNumber, studentName, section, age, contactNo, homeAddress, gender,
+                grade)
             println("...Deletion completed...")
             println("----------------------------------")
         } else if (select == 5){                                                                                //option 5 -> display of all students
@@ -102,22 +100,13 @@ fun main(){
 
 class StudentDirectory(){
 
-    val studentsData = mutableMapOf<Int, String>(1 to "John Doe", 2 to "Peter Pan", 3 to "Mary Me")
-    val studentsData6 = mutableMapOf<Int, String>(1 to "Male", 2 to "Male", 3 to "Female")
-    val studentsData5 = mutableMapOf<Int, String>(1 to "MM", 2 to "ILO", 3 to "CEB")
-    val studentsData2 = mutableMapOf<Int, String>(1 to "A", 2 to "B", 3 to "C")
-    val studentsData7 = mutableMapOf<Int, Double>(1 to 2.5, 2 to 2.0, 3 to 1.5)
-    val studentsData4 = mutableMapOf<Int, Int>(1 to 123, 2 to 234, 3 to 345)
-    val studentsData3 = mutableMapOf<Int, Int>(1 to 16, 2 to 17, 3 to 18)
-    var homeAddress:String = " "
-    var studentName:String = " "
-    var contactNo:Int = 0
-    var idNumber:Int = 0
-    var section:String = " "
-    var gender:String = " "
-    var grade:Double = 0.0
-    var age:Int = 0
-
+    private val studentsData = mutableMapOf(1 to "John Doe", 2 to "Peter Pan", 3 to "Mary Me")
+    private val studentsData6 = mutableMapOf(1 to "Male", 2 to "Male", 3 to "Female")
+    private val studentsData5 = mutableMapOf(1 to "MM", 2 to "ILO", 3 to "CEB")
+    private val studentsData2 = mutableMapOf(1 to "A", 2 to "B", 3 to "C")
+    private val studentsData7 = mutableMapOf(1 to 2.5, 2 to 2.0, 3 to 1.5)
+    private val studentsData4 = mutableMapOf(1 to 123, 2 to 234, 3 to 345)
+    private val studentsData3 = mutableMapOf(1 to 16, 2 to 17, 3 to 18)
     init{
         println("-------------------------------------------------------")
         println("****************   Student Directory   ****************")
@@ -125,13 +114,13 @@ class StudentDirectory(){
     }
     //adding data functions
     fun addData(idNumber: Int, studentName: String, section: String, age: Int, contactNo: Int, homeAddress: String, gender: String, grade: Double){
-        studentsData.put(key = idNumber as Int, value = studentName)
-        studentsData2.put(key = idNumber as Int, value = section)
-        studentsData3.put(key = idNumber as Int, value = age)
-        studentsData4.put(key = idNumber as Int, value = contactNo)
-        studentsData5.put(key = idNumber as Int, value = homeAddress)
-        studentsData6.put(key = idNumber as Int, value = gender)
-        studentsData7.put(key = idNumber as Int, value = grade)
+        studentsData.put(key = idNumber, value = studentName)
+        studentsData2.put(key = idNumber, value = section)
+        studentsData3.put(key = idNumber, value = age)
+        studentsData4.put(key = idNumber, value = contactNo)
+        studentsData5.put(key = idNumber, value = homeAddress)
+        studentsData6.put(key = idNumber, value = gender)
+        studentsData7.put(key = idNumber, value = grade)
     }
 
     //displaying names functions
