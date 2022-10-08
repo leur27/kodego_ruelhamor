@@ -1,4 +1,5 @@
 package com.oop3
 
-class Mammal {
+abstract class Mammal {
+    abstract fun feed()
 }
