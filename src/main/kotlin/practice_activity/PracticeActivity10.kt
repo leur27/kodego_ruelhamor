@@ -124,16 +124,7 @@ class SmartPhone(var load : Double, var batCapacity : Double){
             }else{
                 println("Battery Charged ")
             }
-    //        if (percent > 0){
-//            batCapacity += percent
-//            if (batCapacity>=100){
-//                println("Battery Full")
-//            }else{
-//                println("Battery Charged ")
-//            }
-//        }else{
-//            println("Battery is empty!")
-//        }
+
     }
     fun sendText(message:String){                                                       //-> display message sent
         if (load>0){
