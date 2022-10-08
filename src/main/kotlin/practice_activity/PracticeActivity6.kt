@@ -1,7 +1,9 @@
 //Practice activity 6 -> Activity01-F improvement (Palindrome problem)
 fun main(){
-    println("Enter string:")
+    println("Enter a word:")
     var input : String = readln()
+
+    println("You entered the word $input")
     palindromeChecker(input)
 }
 
