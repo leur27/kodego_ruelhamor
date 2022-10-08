@@ -1,6 +1,6 @@
 package com.CaseStudy
 
-interface UniversityGeneralAdmin {
+interface UniversityGeneralAffairs {
 
     fun displaySubjects(universityID: Int){
 

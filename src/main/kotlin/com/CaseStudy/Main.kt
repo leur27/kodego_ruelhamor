@@ -37,62 +37,62 @@ fun main(){
 
     while (condition){
         println("----------------------------------")
-        println("USER MENU \nCreate an account or Log-in \n[1] Sign-Up \n[2] Sign-In \n[0] Close \nEnter here:")                        //call to action, main menu
+        println("USER MENU \nCreate an account or Log-in \n[1] Sign-Up \n[2] Sign-In \n[0] Close \nEnter here:")                                                                //call to action, main menu
         println("----------------------------------")
         select = readln().toInt()
-        if (select==1){                                                                                                                 //selection 1: signing-up
-            println("Select: [1]Student  [2]Faculty   [3]Admin")                                                                        //user type selection
+        if (select==1){                                                                                                                                                         //selection 1: signing-up
+            println("USER TYPE: [1]Student  [2]Faculty   [3]Admin")                                                                                                                //user type selection
             choose = readln().toInt()
             println("Set your user name:")
             userName = readln()
             println("Set your password:")
             password = readln()
-            when(choose){                                                                                                               //creating new user account
+            when(choose){                                                                                                                                                       //creating new user account
                 1 -> universityStudent.setLoginCredentials(userName, password)
                 2 -> universityFaculty.setLoginCredentials(userName, password)
                 3 -> universityAdmin.setLoginCredentials(userName, password)
                 else ->{continue}
             }
             println("Successfully created your account")
-        }else if (select==2){                                                                                                           //selection 2: signing-in
-            println("Select: [1]Student  [2]Faculty   [3]Admin")                                                                        //selecting user type
+        }else if (select==2){                                                                                                                                                   //selection 2: signing-in
+            println("USER TYPE: [1]Student  [2]Faculty   [3]Admin")                                                                                                                //selecting user type
             choose = readln().toInt()
             println("Enter your user name:")
             userName = readln()
             println("Enter your password:")
             password = readln()
-            when(choose){                                                                                                               //matching username, password & user type
+            when(choose){                                                                                                                                                       //matching username, password & user type
                 1 -> universityStudent.checkLoginCredentials(userName, password)
                 2 -> universityFaculty.checkLoginCredentials(userName, password)
                 3 -> universityAdmin.checkLoginCredentials(userName, password)
                 else ->{continue}
             }
-            println("Press enter to confirm:")                                                                                          //hidden type 'C' to continue
+            println("Press enter to confirm:")                                                                                                                                  //hidden type 'C' to continue
             reply = readln().lowercase()
             if(reply=="c"){
-                println("ACCOUNT MENU \n[1] Explore LMS \n[2] Change Password \n[3] Delete Account \n[0] Logout \nEnter here:")         //call to action, account menu (3)
+                println("ACCOUNT MENU \n[1] Explore LMS \n[2] Change Password \n[3] Delete Account \n[0] Logout \nEnter here:")                                                 //call to action, account menu (3)
                 println("----------------------------------")
                 option = readln().toInt()
-                if (option==1){                                                                                                         //account menu option 1: Explore LMS
-                    println("PROFILE MENU \n[1] Student \n[2] Faculty \n[3] Admin \n[0] Logout \nEnter here:")                          //call to action, profile menu (3)
+                if (option==1){                                                                                                                                                 //account menu option 1: Explore LMS
+                    println("PROFILE MENU \n[1] Student \n[2] Faculty \n[3] Admin \n[0] Logout \nEnter here:")                                                                  //call to action, profile menu (3)
                     println("----------------------------------")
                     input = readln().toInt()
-                    if (input==1){                                                                                                      //profile menu input 1: Student
+                    if (input==1){                                                                                                                                              //profile menu input 1: Student
                         println("Are you enrolled? Y/N:")
                         reply = readln().lowercase()
-                        if (reply!="y"){                                                                                                //if not enrolled - can't continue
+                        if (reply!="y"){                                                                                                                                        //if not enrolled - can't continue
                             println("Sorry but you must be enrolled to access the LMS")
-                            break
-                        }else{                                                                                                          //if enrolled - continues
+                            continue
+                        }else{                                                                                                                                                  //if enrolled - continues
                             println("Enter your student ID:")
                             universityID = readln().toInt()
                             universityStudent.checkIfEnrolled(universityID)
                             println("Press enter to confirm:")
                             reply = readln().lowercase()
-                            if (reply=="g"){                                                                                            //call to action, student menu (4)
+                            if (reply=="g"){                                                                                                                                    //call to action, student menu (4)
                                 println("STUDENT MENU \n[1] School Update \n[2] Subjects Concern \n[3] Accounts Balance \n[4] Meet Professor \n[0] Logout \nEnter here:")
                                 option = readln().toInt()
-                                if (option==1){                                                                                         //student menu option 1: School Update
+                                if (option==1){                                                                                                                                 //student menu option 1: School Update
                                     println("********************************************")
                                     println(">>>>>>>>>>>>  A D V I S O R Y  <<<<<<<<<<<<<")
                                     println("********************************************")
@@ -102,20 +102,20 @@ fun main(){
                                     println("\nYour teacher might reach you out to inform you if you will \nhave an online class or not " +
                                             "you may contact your teachers for or the school admin \nfor any concern (text 777 or call 333-2211), thank you.")
                                     universityStakeholders.postAnnouncement(message)
-                                }else if (option==2){                                                                                   //student menu option 2: Subjects Concern
+                                }else if (option==2){                                                                                                                           //student menu option 2: Subjects Concern
                                     println("Subjects Concern: \n[1] Enrolled Subjects \n[2] Class Schedules \n[3] Change Subject \n[4] Drop Subject \n[5] Add Subject \n[0] Logout \nEnter here:")
-                                    input = readln().toInt()                                                                            //call to action: Subjects Concern Menu (5)
-                                    if(input==1){                                                                                       //SUBJ CON input 1: enrolled subjects
+                                    input = readln().toInt()                                                                                                                    //call to action: Subjects Concern Menu (5)
+                                    if(input==1){                                                                                                                               //SUBJ CON input 1: enrolled subjects
                                         println("Enter your student ID:")
                                         universityID = readln().toInt()
                                         println("These are the subjects you enrolled:")
                                         universityStudent.displaySubjects(universityID)
-                                    }else if (input==2){                                                                                //SUBJ CON input 2: class schedules
+                                    }else if (input==2){                                                                                                                        //SUBJ CON input 2: class schedules
                                         println("Enter your student ID:")
                                         universityID = readln().toInt()
                                         println("These are your schedules:")
                                         universityStudent.displaySchedules(universityID)
-                                    }else if (input==3){                                                                                //SUBJ CON input 3: changing subject
+                                    }else if (input==3){                                                                                                                        //SUBJ CON input 3: changing subject
                                         println("Only 1 subject is allowed to change:")
                                         println("Current subject to be changed:")
                                         oldSubject = readln()
@@ -123,9 +123,9 @@ fun main(){
                                         newSubject = readln()
                                         println("Enter student ID to confirm:")
                                         universityID = readln().toInt()
-                                        universityStudent.changingSubject(oldSubject, newSubject, universityID)
+                                        universityStudent.changeSubject(oldSubject, newSubject, universityID)
                                         println("Visit the registrar personally for verification")
-                                    }else if (input==4){                                                                                //SUBJ CON input 4: dropping subject
+                                    }else if (input==4){                                                                                                                        //SUBJ CON input 4: dropping subject
                                         println("Only 1 subject is allowed to drop:")
                                         println("Current subject to be dropped:")
                                         oldSubject = readln()
@@ -133,7 +133,7 @@ fun main(){
                                         universityID = readln().toInt()
                                         universityStudent.dropSubject(oldSubject, universityID)
                                         println("Visit the registrar personally for verification")
-                                    }else if (input==5){                                                                                //SUBJ CON input 5: adding subject
+                                    }else if (input==5){                                                                                                                        //SUBJ CON input 5: adding subject
                                         println("Only 1 subject is allowed to add:")
                                         println("Current subject to be added:")
                                         newSubject = readln()
@@ -145,7 +145,7 @@ fun main(){
                                         continue
                                     //end of Subject Concern Menu (student)
                                     }
-                                }else if (option==3){                                                                                   //Student Menu option 3: accounts balance
+                                }else if (option==3){                                                                                                                           //Student Menu option 3: accounts balance
                                     println("Number of subjects enrolled:")
                                     numberOfSubjects = readln().toDouble()
                                     println("How many subjects with laboratory? ")
@@ -158,15 +158,15 @@ fun main(){
                                     universityID = readln().toInt()
                                     universityStudent.computeBalance(universityID, numberOfSubjects, numberOfLab, downpayment, secondPayment)
                                     println("\nVisit the Business Office personally for verification")
-                                }else if (option==4){                                                                                   //Student Menu option 4: meet professor
+                                }else if (option==4){                                                                                                                           //Student Menu option 4: meet professor
                                     println("Enter your teacher's name:")
                                     name = readln()
                                     println("Mr/Ms $name is available on the following schedule:")
                                     universityFaculty.displayFreeTime(name)
                                     println("\nIn case you can't get through, you can use LMS Messenger to chat")
-                                    println("Message Menu [1]Write [2]Inbox [3]Sent [0}Cancel")                                         //call to action, Message Menu (3)
+                                    println("Message Menu [1]Write [2]Inbox [3]Sent [0}Cancel")                                                                                 //call to action, Message Menu (3)
                                     choose = readln().toInt()
-                                    if (choose==1){                                                                                     //message menu choose 1: write messages
+                                    if (choose==1){                                                                                                                             //message menu choose 1: write messages
                                         println("WRITE MESSAGES")
                                         println("Enter sender name:")
                                         name = readln()
@@ -174,31 +174,31 @@ fun main(){
                                         val recipient = readln()
                                         println("Type your message and press enter to send:")
                                         message = readln()
-                                        universityStakeholders.johnSendMessage(message, name, recipient)                               //printing message composition
+                                        universityStakeholders.johnSendMessage(message, name, recipient)                                                                        //printing message composition
                                         universityStakeholders.lukeSendMessage(message, name, recipient)
                                         universityStakeholders.matthewSendMessage(message, name, recipient)
                                         println("Message sent:")
-                                    }else if (choose==2){                                                                               //message menu choose 2: message inbox
+                                    }else if (choose==2){                                                                                                                       //message menu choose 2: message inbox
                                         println("MESSAGE INBOX")
                                         println("Enter sender name:")
                                         name = readln()
                                         println("Recipient name:")
                                         val recipient = readln()
                                         println("Message received:")
-                                        universityStakeholders.johnGetMessage(message, name, recipient)                                 //displaying message from specific sender
+                                        universityStakeholders.johnGetMessage(message, name, recipient)                                                                           //displaying message from specific sender
                                         universityStakeholders.lukeGetMessage(message, name, recipient)
                                         universityStakeholders.matthewGetMessage(message, name, recipient)
-                                        when(recipient){                                                                                //displaying inbox with respect to owner
+                                        when(recipient){                                                                                                                           //displaying inbox with respect to owner
                                             "John" -> println(universityStakeholders.johnInbox)
                                             "Luke" -> println(universityStakeholders.lukeInbox)
                                             "Matthew" -> println(universityStakeholders.matthewInbox)
                                         }
                                         println("---nothing follows---")
-                                    }else if (choose==3){                                                                               //message menu choose 3: sent items
+                                    }else if (choose==3){                                                                                                                           //message menu choose 3: sent items
                                         println("SENT ITEMS")
                                         println("Recipient name:")
                                         val recipient = readln()
-                                        when(recipient){                                                                                //displaying sent items according to owner
+                                        when(recipient){                                                                                                                            //displaying sent items according to owner
                                             "John" -> println(universityStakeholders.johnSentItems)
                                             "Luke" -> println(universityStakeholders.lukeSentItems)
                                             "Matthew" -> println(universityStakeholders.matthewSentItems)
@@ -218,22 +218,22 @@ fun main(){
                             }
                         //end of student profile selection: type hidden 'g' to continue
                         }
-                    }else if (input==2){                                                                                                //profile menu input 2: Faculty
+                    }else if (input==2){                                                                                                                                            //profile menu input 2: Faculty
                         println("Do you have a teaching load? Y/N:")
                         reply = readln().lowercase()
-                        if (reply!="y"){                                                                                                //if without teaching loads - can't continue
+                        if (reply!="y"){                                                                                                                                            //if without teaching loads - can't continue
                             println("Sorry but you must have teaching load/s to access the LMS")
                             break
-                        }else {                                                                                                         //if with teaching loads - continues
+                        }else {                                                                                                                                                     //if with teaching loads - continues
                             println("Enter your employee ID:")
                             universityID = readln().toInt()
                             universityFaculty.checkIfLoaded(universityID)
                             println("Please enter to confirm:")
                             reply = readln().lowercase()
-                            if (reply == "g") {                                                                                         //call to action, faculty menu (3)
+                            if (reply == "g") {                                                                                                                                     //call to action, faculty menu (3)
                                 println("FACULTY MENU \n[1] School Update \n[2] Subject Loads \n[3] Meet Student \n[0] Logout \nEnter here:")
                                 option = readln().toInt()
-                                if (option == 1) {                                                                                      //faculty menu option 1: school update
+                                if (option == 1) {                                                                                                                                  //faculty menu option 1: school update
                                     println("********************************************")
                                     println(">>>>>>>>>>>>  A D V I S O R Y  <<<<<<<<<<<<<")
                                     println("********************************************")
@@ -243,15 +243,15 @@ fun main(){
                                     println("\nInform your students if you will have an online lecture due classes suspension \nif needed and possible but " +
                                             "we highly advised that you do so, thank you.")
                                     universityStakeholders.postAnnouncement(message)
-                                } else if (option == 2) {                                                                               //faculty menu option 2: subject loads
+                                } else if (option == 2) {                                                                                                                            //faculty menu option 2: subject loads
                                     println("Subjects Load: \n[1] Subjects Assignment \n[2] Class Schedules \n[0] Logout \nEnter here:")
-                                    input = readln().toInt()                                                                            //call to action, SUBJECT LOAD MENU (2)
-                                    if(input==1){                                                                                       //SUBJ LOAD input 1: Subjects Assignment
+                                    input = readln().toInt()                                                                                                                         //call to action, SUBJECT LOAD MENU (2)
+                                    if(input==1){                                                                                                                                    //SUBJ LOAD input 1: Subjects Assignment
                                         println("Enter your employee ID:")
                                         universityID = readln().toInt()
                                         println("These are your teaching loads:")
                                         universityFaculty.displaySubjects(universityID)
-                                    }else if (input==2){                                                                                //SUBJ LOAD input 2: class schedules
+                                    }else if (input==2){                                                                                                                             //SUBJ LOAD input 2: class schedules
                                         println("Enter your employee ID:")
                                         universityID = readln().toInt()
                                         println("These are your schedules:")
@@ -260,15 +260,15 @@ fun main(){
                                         //end of Subjects Load
                                         continue
                                     }
-                                }else if (option==3){                                                                                   //faculty menu option 3: Meet Students
+                                }else if (option==3){                                                                                                                               //faculty menu option 3: Meet Students
                                     println("Enter your student's name:")
                                     name = readln()
                                     println("Mr/Ms $name is available on the following schedule:")
                                     universityStudent.displayFreeTime(name)
                                     println("\nIn case you can't get through, you can use LMS Messenger to chat")
-                                    println("Message Menu [1]Write [2]Inbox [3]Sent [0}Cancel")                                         //call to action, message menu for faculty
+                                    println("Message Menu [1]Write [2]Inbox [3]Sent [0}Cancel")                                                                                     //call to action, message menu for faculty
                                     choose = readln().toInt()
-                                    if (choose==1){                                                                                     //message menu choose 1: write messages
+                                        if (choose==1){                                                                                                                             //message menu choose 1: write messages
                                         println("WRITE MESSAGES")
                                         println("Enter sender name:")
                                         name = readln()
@@ -276,31 +276,31 @@ fun main(){
                                         val recipient = readln()
                                         println("Type your message and press enter to send:")
                                         message = readln()
-                                        universityStakeholders.eveSendMessage(message, name, recipient)                                 //printing message composition
+                                        universityStakeholders.eveSendMessage(message, name, recipient)                                                                                 //printing message composition
                                         universityStakeholders.marySendMessage(message, name, recipient)
                                         universityStakeholders.estherSendMessage(message, name, recipient)
                                         println("Message sent")
-                                    }else if (choose==2){                                                                               //message menu choose 2: message inbox
+                                    }else if (choose==2){                                                                                                                               //message menu choose 2: message inbox
                                         println("MESSAGE INBOX")
                                         println("Enter sender name:")
                                         name = readln()
                                         println("Recipient name:")
                                         val recipient = readln()
                                         println("Message received:")
-                                        universityStakeholders.eveGetMessage(message, name, recipient)                                  //displaying message received from specific sender
+                                        universityStakeholders.eveGetMessage(message, name, recipient)                                                                                  //displaying message received from specific sender
                                         universityStakeholders.maryGetMessage(message, name, recipient)
                                         universityStakeholders.estherGetMessage(message, name, recipient)
-                                        when(recipient){                                                                                //displaying inbox with respect to owner
+                                        when(recipient){                                                                                                                                //displaying inbox with respect to owner
                                             "Eve" -> println(universityStakeholders.eveInbox)
                                             "Mary" -> println(universityStakeholders.maryInbox)
                                             "Esther" -> println(universityStakeholders.estherInbox)
                                         }
                                         println("---nothing follows---")
-                                    }else if (choose==3){                                                                               //message menu choose 3: sent items
+                                    }else if (choose==3){                                                                                                                               //message menu choose 3: sent items
                                         println("SENT ITEMS")
                                         println("Recipient name:")
                                         val recipient = readln()
-                                        when(recipient){                                                                                //displaying sent items according to owner
+                                        when(recipient){                                                                                                                                //displaying sent items according to owner
                                             "Eve" -> println(universityStakeholders.eveSentItems)
                                             "Mary" -> println(universityStakeholders.marySentItems)
                                             "Esther" -> println(universityStakeholders.lukeSentItems)
@@ -320,25 +320,25 @@ fun main(){
                             }
                         //end of faculty profile selected: type hidden 'g' to continue
                         }
-                    }else if(input==3){                                                                                                 //profile menu input 3: Admin Staff
+                    }else if(input==3){                                                                                                                                                 //profile menu input 3: Admin Staff
                         println("Do you have authorization? Y/N:")
                         reply = readln().lowercase()
-                        if (reply!="y"){                                                                                                //if not authorized - can't continue
+                        if (reply!="y"){                                                                                                                                                //if not authorized - can't continue
                             println("Sorry but you must have authorization to access the LMS")
                             break
-                        }else {                                                                                                         //if authorized continues
+                        }else {                                                                                                                                                         //if authorized continues
                             println("Enter your employee ID:")
                             universityID = readln().toInt()
                             universityAdmin.checkIfAuthorized(universityID)
                             println("Please enter to confirm:")
                             reply = readln().lowercase()
-                            if (reply == "g") {                                                                                         //call to action, Admin Menu (3)
+                            if (reply == "g") {                                                                                                                                         //call to action, Admin Menu (3)
                                 println("ADMIN MENU \n[1] School Bulletin \n[2] Enrollment Update \n[3] LMS Accounts \n[0] Logout \nEnter here:")
                                 option = readln().toInt()
-                                if (option == 1) {                                                                                      //admin menu option 1: School Bulletin
+                                if (option == 1) {                                                                                                                                      //admin menu option 1: School Bulletin
                                     println("Create announcement:")
                                     message = readln()
-                                    println("Choose: [1]Post [2]Edit [0}Cancel")                                                        //call to action, post menu (2)
+                                    println("Choose: [1]Post [2]Edit [0}Cancel")                                                                                                        //call to action, post menu (2)
                                     choose = readln().toInt()
                                     if(choose==1){
                                         universityStakeholders.postAnnouncement(message)
@@ -352,17 +352,17 @@ fun main(){
                                         continue
                                     }
                                     println("\nYour announcement is already posted")
-                                } else if (option == 2) {                                                                               //Admin Menu option 2: enrollment update
+                                } else if (option == 2) {                                                                                                                               //Admin Menu option 2: enrollment update
                                     println("Update Enrollment: \n[1] View \n[2] Search \n[3] Add \n[4] Edit \n[5] Delete \n[0] Logout \nEnter here:")
-                                    input = readln().toInt()                                                                            //call to action, Enrollment Update Menu (5)
-                                    if (input == 1) {                                                                                   //ENROL UPD input 1: Viewing
+                                    input = readln().toInt()                                                                                                                            //call to action, Enrollment Update Menu (5)
+                                    if (input == 1) {                                                                                                                                   //ENROL UPD input 1: Viewing
                                         println(">>> VIEW <<<")
                                         println("Enter your employee ID to view:")
                                         universityID = readln().toInt()
                                         println("Displaying enrolled students...")
                                         universityAdmin.viewEnrollment(universityID)
                                         println("...display completed")
-                                    } else if (input == 2) {                                                                            //ENROL UPD input 2: Searching
+                                    } else if (input == 2) {                                                                                                                            //ENROL UPD input 2: Searching
                                         println(">>> SEARCH <<<")
                                         println("Enter your employee ID:")
                                         universityID = readln().toInt()
@@ -372,7 +372,7 @@ fun main(){
                                         println("Displaying enrolled students...")
                                         universityAdmin.searchStudentEnrolled(universityID, studentID)
                                         println("...search completed")
-                                    } else if (input == 3) {                                                                            //ENROL UPD input 43 Adding
+                                    } else if (input == 3) {                                                                                                                            //ENROL UPD input 43 Adding
                                         println(">>> ADD <<<")
                                         println("Enter your employee ID to add:")
                                         universityID = readln().toInt()
@@ -391,7 +391,7 @@ fun main(){
                                         section = readln()
                                         universityAdmin.addEnrollment(universityID, studentID, name, age, course, year, section)
                                         println("...adding complete")
-                                    } else if (input == 4) {                                                                            //ENROL UPD input 4: Editing
+                                    } else if (input == 4) {                                                                                                                            //ENROL UPD input 4: Editing
                                         println(">>> EDIT <<<")
                                         println("Enter your employee:")
                                         universityID = readln().toInt()
@@ -411,7 +411,7 @@ fun main(){
                                         section = readln()
                                         universityAdmin.editEnrollment(universityID, studentID, name, age, course, year, section)
                                         println("...editing complete")
-                                    } else if(input==5){                                                                                //ENROL UPD input 5: Deleting
+                                    } else if(input==5){                                                                                                                                //ENROL UPD input 5: Deleting
                                         println(">>> DELETE <<<")
                                         println("Enter your employee ID:")
                                         universityID = readln().toInt()
@@ -424,16 +424,16 @@ fun main(){
                                         //end of enrollment update
                                         continue
                                     }
-                                } else if (option == 3) {                                                                           //Admin Menu option 3: LMS Accounts
+                                } else if (option == 3) {                                                                                                                               //Admin Menu option 3: LMS Accounts
                                     println("<<< LMS Accounts >>>")
                                     println("Enter your employee ID:")
                                     universityID = readln().toInt()
-                                    println("LMS Account: \n[1] View \n[2] Delete \nEnter here:")                                   //call to action, LMS Accounts Menu (2)
+                                    println("LMS Account: \n[1] View \n[2] Delete \nEnter here:")                                                                                       //call to action, LMS Accounts Menu (2)
                                     choose = readln().toInt()
-                                    if (choose==1){                                                                                 //Accounts Menu choose 1: Viewing
+                                    if (choose==1){                                                                                                                                     //Accounts Menu choose 1: Viewing
                                         universityAdmin.viewUserAccounts(universityID)
                                         println("...display completed")
-                                    }else if (choose==2){                                                                           //LMS Accounts Menu choose 2: Deleting
+                                    }else if (choose==2){                                                                                                                               //LMS Accounts Menu choose 2: Deleting
                                         println("Existing LMS accounts:")
                                         universityAdmin.viewUserAccounts(universityID)
                                         println("Enter user name to delete:")
@@ -462,21 +462,21 @@ fun main(){
                         //end of 4th level if-else: PROFILE MENU
                         continue
                     }
-                }else if (option==2){                                                                                                   //ACCOUNT MENU option 2: Change Password
-                    println("Select: [1]Student  [2]Faculty   [3]Admin")                                                                //user type selection
+                }else if (option==2){                                                                                                                                                       //ACCOUNT MENU option 2: Change Password
+                    println("USER TYPE:  [1]Student  [2]Faculty   [3]Admin")                                                                                                                    //user type selection
                     choose = readln().toInt()
                     println("Enter your old password:")
                     password = readln()
                     println("Enter your new password:")
                     newPassword = readln()
-                    when(choose){                                                                                                       //matching username, password, & user type
+                    when(choose){                                                                                                                                                           //matching username, password, & user type
                         1 -> universityStudent.changePassword(newPassword, password)
                         2 -> universityFaculty.changePassword(newPassword, password)
                         3 -> universityAdmin.changePassword(newPassword, password)
                         else ->{continue}
                     }
                     println("Successfully changed your password")
-                }else if (option==3){                                                                                                   //ACCOUNT MENU option 3: Delete Account
+                }else if (option==3){                                                                                                                                                       //ACCOUNT MENU option 3: Delete Account
                     println("Enter your user name:")
                     userName = readln()
                     println("Enter your password:")
@@ -484,9 +484,9 @@ fun main(){
                     println("Do you really want to delete your account? Y/N:")
                     reply = readln().lowercase()
                     if (reply=="y"){
-                        println("Select: [1]Student  [2]Faculty   [3]Admin")
+                        println("USER TYPE: [1]Student  [2]Faculty   [3]Admin")
                         choose = readln().toInt()
-                        when(choose){                                                                                                   //matching username. password, & user type
+                        when(choose){                                                                                                                                                       //matching username. password, & user type
                             1 -> universityStudent.deleteAccount(userName, password)
                             2 -> universityFaculty.deleteAccount(userName, password)
                             3 -> universityAdmin.deleteAccount(userName, password)
